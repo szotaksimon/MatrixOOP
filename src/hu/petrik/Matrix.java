@@ -1,9 +1,9 @@
 package hu.petrik;
 
 public class Matrix {
-    private int sorokSzama;
-    private int oszlopokSzama;
-    private int[][] matrix;
+    protected int sorokSzama;
+    protected int oszlopokSzama;
+    protected int[][] matrix;
 
     public Matrix(int sorokSzama, int oszlopokSzama){
         this.sorokSzama = sorokSzama;
@@ -15,12 +15,19 @@ public class Matrix {
         this.sorokSzama = (int)(Math.random()*11)+5;
         this.oszlopokSzama = (int)(Math.random()*11)+5;
         this.matrix = new int[this.sorokSzama][this.oszlopokSzama];
+        this.feltolt();
+
+    }
+
+    protected void feltolt(){
         for(int i = 0; i < this.sorokSzama; i++){
             for (int j = 0; j < oszlopokSzama; j ++){
                 this.matrix[i][j] = (int)(Math.random()* 90)+ 10;
             }
         }
     }
+
+
     //döntsük el, hogy négyzetes mátrix-e a mátrixunk
     public boolean isNegyzetes(){
         return this.sorokSzama == this.oszlopokSzama;
